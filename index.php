@@ -5,7 +5,7 @@
 
 function bdd(){
     try{
-        $bdd = new PDO("mysql:dbname=abclight;host=localhost", "root", "");
+        $bdd = new PDO("mysql:host=localhost;dbname=abclight", "root", "");
     }
     catch(PDOException $error){
         echo "Connexion impossible: " . $error ->getMessage();
