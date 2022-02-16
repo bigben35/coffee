@@ -1,0 +1,15 @@
+{
+    "name": "kercode/coffee",
+    "autoload": {
+        "psr-4": {
+            "Kercode\\Coffee\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bigben35",
+            "email": "79405849+bigben35@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
