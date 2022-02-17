@@ -11,5 +11,7 @@
             "email": "79405849+bigben35@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    }
 }
