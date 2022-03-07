@@ -11,6 +11,9 @@ if($_SERVER['HTTP_HOST'] != "coffee-k66.herokuapp.com"){
   $dotenv->load();
 }
 
+
+require './waiter.php';
+
 echo "Hello World !" . '<br>';
 
 function dbaccess() {
@@ -25,12 +28,12 @@ function dbaccess() {
   
 $db = dbaccess();
 
-$req = $db->query('SELECT name FROM waiter')->fetchAll();
+// $req = $db->query('SELECT name FROM waiter')->fetchAll();
 // $reqCoffee = $db->query('SELECT * FROM edible WHERE price LIKE 1.3')->fetchAll();
 // $reqCoffee = $db->query('SELECT * FROM edible WHERE FORMAT(price, 1) = 1.3')->fetchAll(); //autre solution
-
-foreach ($req as $dbreq) {
-  echo $dbreq['name'] . "<br>";
+$waiter = Waiter::all($db); //::methode de classe 
+foreach ($waiter as $dbreq) {
+  echo $dbreq->name . "<br>";
 }
 
 
