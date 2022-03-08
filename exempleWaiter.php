@@ -12,7 +12,7 @@
   }
 
   //chemin de connexion à la bdd
-  //path =url 
+//   path =url 
   $path = "mysql:host=".$_ENV['DB_HOST'].":".$_ENV['DB_PORT'].";dbname=".$_ENV['DB_NAME'].";charset=utf8";
 
   //objet php qui permet la connexion a la bdd, php data objet PDO
@@ -26,7 +26,32 @@
   //créer des objet waiter
 // qui offre une méthode info
 
-  
+  class Waiter 
+  {
+    private $id;
+    private $name;
+
+    public function __construct($data) {
+      $this->id = $data["id"];
+      $this->name = $data["name"];
+    }
+
+    public function info() {
+      return "Salut je suis {$this->name} et j'ai l'id {$this->id}";
+    }
+  }
+
+  $sqlQuery = "SELECT id, name FROM `Waiter`";
+
+  $waiters = [];
+
+  foreach($pdo->query($sqlQuery) as $res) {
+    array_push(
+      $waiters, 
+      new Waiter($res)
+    );  
+  }
+
 if(count($waiters) > 0) {
 $title = "Liste des serveurs";
 ?>
